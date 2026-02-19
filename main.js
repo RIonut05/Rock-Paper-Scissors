@@ -1,31 +1,34 @@
 const getComputerChoice = () => {
-  const options = ["patra", "hartie", "foarfeca"]
+  const options = ["patra", "paper", "scissors"]
   return options[Math.floor(Math.random() * 3)]
 }
 
-const getHumanChoice = () => prompt("Alege piatra, hartie sau foarfeca")
 
 humanScore = 0
-omputerScore = 0  
+computerScore = 0  
 
 const rock = document.querySelector("#rock")
 const paper = ducunent.querySelector("#paper")
 const scissors = ducument.querySelector("scissors")
 
-  const playRound = (humanChoice, computerChoice) => {
-  humanChoice = humanChoice.toLowerCase()
+rock.addEventListener("click", (e) => playRound(getComputerChoice))
+paper.addEventListener("click", (e) => playRound(getComputerChoice))
+scissors.addEventListener("click", (e) => playRound(getComputerChoice))
+
+  const playRound = (computerChoice) => {
+  const humanChoice = e.target.textContent
 
   if (humanChoice === computerChoice) {
-    console.log("Egalitate!")
+    console.log("Draw!")
   } else if (
-    (humanChoice === "piatra" && computerChoice === "foarfeca") ||
-    (humanChoice === "hartie" && computerChoice === "piatra") ||
-    (humanChoice === "foarfeca" && computerChoice === "hartie")
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
   ) {
-    console.log("Ai castigat!")
+    console.log("You win!")
     humanScore++
   } else {
-    console.log("Ai pierdut!")
-    computerChoice++
+    console.log("You lose!")
+    computerScore++
   }
 }
