@@ -15,6 +15,7 @@ paper.addEventListener("click", () => playRound("paper",getComputerChoice()))
 scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()))
 
 const result = document.querySelector(".result")
+const score = document.querySelector(".score")
 
 const playRound = (humanChoice, computerChoice) => {
 
@@ -26,9 +27,17 @@ const playRound = (humanChoice, computerChoice) => {
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     result.textContent = "You win!"
-    humanScore++
+    ++humanScore
   } else {
     result.textContent = "You lose!"
-    computerScore++
+    ++computerScore
   }
+
+  score.textContent = `Your score: ${humanScore} | Computer score: ${computerScore}`
+
+  if (humanScore === 5 || computerScore === 5) {
+  const finalResult = document.querySelector(".final-result")
+  finalResult.textContent = humanScore === 5 ? "You won!!!!" : "Computer beat you!!!!"
 }
+}
+
