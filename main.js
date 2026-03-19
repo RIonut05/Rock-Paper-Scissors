@@ -4,43 +4,57 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)]
 }
 
-function getHumanChoice() {
-  return prompt('Choose your wepon').toLowerCase()
+const elements = {
+  result: document.querySelector('.result'),
+  finalResult: document.querySelector('.final-result'),
+  humanScore: document.querySelector('.human-score'),
+  computerScore: document.querySelector('.computer-score')
 }
 
 function playGame() {
   let humanScore = 0
   let computerScore = 0
-
+  
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-      console.log('Draw!')
+      elements.result.textContent = 'Daw!'
     } else if (
       humanChoice === 'rock' && computerChoice === 'scissors' ||
       humanChoice === 'paper' && computerChoice === 'rock' ||
       humanChoice === 'scissors' && computerChoice === 'rock'
     ) {
-      console.log('You win!')
+      elements.result.textContent = 'You win!'
       ++humanScore
     } else {
-      console.log('You lose!')
+      elements.result.textContent = 'You lose!'
       ++computerScore
     }
 
-    console.log(`human: ${humanScore} - computer: ${computerScore}`)
+    elements.humanScore.textContent = `Human: ${humanScore}`
+    elements.computerScore.textContent = `Computer: ${computerScore}`
+
+    if (humanScore === 5 || computerScore === 5) {
+      elements.result.textContent = ''
+      elements.humanScore.textContent = ''
+      elements.computerScore.textContent = ''
+
+      if (humanScore > computerChoice) {
+        elements.finalResult.textContent = "YOU WON!!!"
+      } else {
+        elements.finalResult.textContent = 'YOU LOST!!!'
+      }
+    }
   }
 
-  for (let i = 1; i <= 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice())
-  }
-
-  if (humanScore === computerScore) {
-    console.log('Final result: DRAW!')
-  } else if (humanScore > computerScore) {
-    console.log('Final result: YOU WIN!')
-  } else {
-    console.log('YOU LOSE!')
-  }
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('rock')) {
+      playRound('rock', getComputerChoice())
+    } else if (e.target.classList.contains('paper')) {
+        playRound('rock', getComputerChoice())
+    } else if (e.target.classList.contains('scissors')) {
+        playRound('scissors', getComputerChoice())
+    }
+  })
 }
 
 playGame()
