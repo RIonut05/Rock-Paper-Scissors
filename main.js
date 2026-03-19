@@ -33,6 +33,14 @@ function playGame() {
   for (let i = 1; i <= 5; i++) {
     playRound(getHumanChoice(), getComputerChoice())
   }
+
+  if (humanScore === computerScore) {
+    console.log('Final result: DRAW!')
+  } else if (humanScore > computerScore) {
+    console.log('Final result: YOU WIN!')
+  } else {
+    console.log('YOU LOSE!')
+  }
 }
 
 playGame()
