@@ -21,7 +21,7 @@ function playGame() {
     } else if (
       humanChoice === 'rock' && computerChoice === 'scissors' ||
       humanChoice === 'paper' && computerChoice === 'rock' ||
-      humanChoice === 'scissors' && computerChoice === 'rock'
+      humanChoice === 'scissors' && computerChoice === 'paper'
     ) {
       elements.result.textContent = 'You win!'
       ++humanScore
@@ -34,9 +34,9 @@ function playGame() {
     elements.computerScore.textContent = `Computer: ${computerScore}`
 
     if (humanScore === 5 || computerScore === 5) {
-      elements.result.textContent = ''
-      elements.humanScore.textContent = ''
-      elements.computerScore.textContent = ''
+        elements.result.classList.add('hidden')
+        elements.humanScore.classList.add('hidden')
+        elements.computerScore.classList.add('hidden')
 
       if (humanScore > computerChoice) {
         elements.finalResult.textContent = "YOU WON!!!"
