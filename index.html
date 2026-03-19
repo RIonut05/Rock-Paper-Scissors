@@ -4,23 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div class="container">
-    <div class="display">
-      <div class="score">
-        <div class="computer-score"></div>
-        <div class="human-score"></div>
+    <div class="display-border">
+      <div class="display">
+        <div class="score">
+          <div class="computer-score"></div>
+          <div class="human-score"></div>
+        </div>
+        <div class="result"></div>
+        <div class="final-result"></div>
       </div>
-      <div class="result"></div>
-      <div class="final-result"></div>
+    </div> 
+    <div class="btns">
+      <button class='rock'><i data-lucide="stone" class='rock'></i></button>
+      <button class='paper'><i data-lucide="sticky-note" class='paper'></i></button>
+      <button class="scissors"><i data-lucide="scissors" class='scissors'></i> </button>
     </div>
-    <button class='rock'>rock</button>
-    <button class='paper'>paper</button>
-    <button class="scissors">scissors</button>
   </div>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <script src='/main.js'></script>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

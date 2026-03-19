@@ -1,3 +1,129 @@
+:root {
+  --black: #000000;
+  --white: #fafafa;
+  --gray-300: #d6d6d6;
+  --gray-500: #767676;
+  --green-400: #00e600;
+  --green-500: #57bd25;
+  --green-700: #337318;
+  --green-dark: #098b00;
+  --red: #d70000;
+  --red-dark: #920a0a;
+  --blue: #2b14ff;
+  --blue-dark: #0a115c;
+
+  --defaul-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: var(--gray-300);
+  width: 300px;
+  height: 400px;
+  border-radius: var(--defaul-radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.display-border {
+  background-color: var(--gray-500);
+  width: 100%;
+  height: 50%;
+  border-radius: var(--defaul-radius);
+  padding: 1rem 2.5rem;
+  margin-bottom: auto;
+  box-shadow: 3px 3px 3px rgba(1, 1, 1, 0.72);
+}
+
+.display {
+  background-color: var(--green-500);
+  width: 100%;
+  height: 100%;
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--green-700);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 164, 0, 0.96);
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: auto;
+}
+
+.result {
+  margin-bottom: 30%;
+  align-self: center;
+}
+
+.btns {
+  align-self: center;
+  margin-bottom: auto;
+}
+
+svg.lucide.lucide-stone.rock, svg.lucide.lucide-scissors.scissors, svg.lucide.lucide-sticky-note.paper{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+}
+
+.btns > button {
+  border: none;
+  color: var(--white);
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: 3px 3px 3px rgba(1, 1, 1, 0.72);
+}
+
+.rock {
+  background-color: var(--red);
+}
+
+.paper {
+  background-color: var(--green-400);
+}
+
+.scissors {
+  background-color: var(--blue);
+}
+
+.rock:active {
+  background-color: var(--red-dark);
+  box-shadow: none;
+}
+
+.scissors:active {
+  background-color: var(--blue-dark);
+  box-shadow: none;
+}
+
+.paper:active {
+  background-color: var(--green-dark);
+  box-shadow: none;
+}
+
 .hidden {
   display: none;
 }
