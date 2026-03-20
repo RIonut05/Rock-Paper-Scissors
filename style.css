@@ -77,6 +77,11 @@ body {
   align-self: center;
 }
 
+.final-result {
+  align-self: center;
+  margin-bottom: 35%;
+}
+
 .btns {
   align-self: center;
   margin-bottom: auto;
